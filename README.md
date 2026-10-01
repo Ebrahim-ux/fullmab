@@ -45,7 +45,7 @@ pytest
 
 ## Deployment (Fly.io via GitHub Actions)
 
-Every push to `main` runs lint/typecheck/test, then deploys to Fly.io if they pass.
+Every push to `master` runs lint/typecheck/test, then deploys to Fly.io if they pass.
 
 ### One-time setup
 
@@ -53,7 +53,7 @@ Every push to `main` runs lint/typecheck/test, then deploys to Fly.io if they pa
 2. From the project root: `fly launch --no-deploy` (it will detect `fly.toml`; keep the existing app name `sci-calc-fullmab` or update `fly.toml` if you choose a different one).
 3. Generate a deploy token: `fly tokens create deploy -x 999999h`
 4. In the GitHub repo, go to **Settings → Secrets and variables → Actions** and add a secret named `FLY_API_TOKEN` with that token's value.
-5. Push to `main` — the `deploy` job in `.github/workflows/ci.yml` will build the Docker image and deploy it.
+5. Push to `master` — the `deploy` job in `.github/workflows/ci.yml` will build the Docker image and deploy it.
 
 ### Manual deploy (optional)
 
