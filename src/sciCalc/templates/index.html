@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <main class="calculator">
+    <h1 class="visually-hidden">Scientific Calculator</h1>
+
+    <div class="history" id="history" aria-label="Calculation history"></div>
+
+    <div class="display">
+      <input
+        id="expression"
+        type="text"
+        inputmode="text"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Expression"
+        placeholder="0"
+      />
+      <div id="memory-indicator" class="memory-indicator" aria-hidden="true"></div>
+    </div>
+
+    <div id="error" class="error" role="alert"></div>
+
+    <div class="pad">
+      <button data-action="memory-clear" title="Memory clear">MC</button>
+      <button data-action="memory-recall" title="Memory recall">MR</button>
+      <button data-action="memory-add" title="Memory add">M+</button>
+      <button data-action="memory-subtract" title="Memory subtract">M-</button>
+      <button data-action="clear">C</button>
+
+      <button data-insert="sin(">sin</button>
+      <button data-insert="cos(">cos</button>
+      <button data-insert="tan(">tan</button>
+      <button data-insert="log(">log</button>
+      <button data-insert="ln(">ln</button>
+
+      <button data-insert="(">(</button>
+      <button data-insert=")">)</button>
+      <button data-insert="sqrt(">&radic;</button>
+      <button data-insert="^">^</button>
+      <button data-action="backspace">&larr;</button>
+
+      <button data-insert="7">7</button>
+      <button data-insert="8">8</button>
+      <button data-insert="9">9</button>
+      <button data-insert="/">&divide;</button>
+      <button data-insert="factorial(">n!</button>
+
+      <button data-insert="4">4</button>
+      <button data-insert="5">5</button>
+      <button data-insert="6">6</button>
+      <button data-insert="*">&times;</button>
+      <button data-insert="pi">&pi;</button>
+
+      <button data-insert="1">1</button>
+      <button data-insert="2">2</button>
+      <button data-insert="3">3</button>
+      <button data-insert="-">&minus;</button>
+      <button data-insert="e">e</button>
+
+      <button data-insert="0">0</button>
+      <button data-insert=".">.</button>
+      <button data-action="equals" class="equals">=</button>
+      <button data-insert="+">+</button>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>

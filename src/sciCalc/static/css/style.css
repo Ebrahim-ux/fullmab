@@ -1,0 +1,138 @@
+:root {
+  --bg: #1e1f26;
+  --panel: #2a2b35;
+  --accent: #5b8cff;
+  --accent-dim: #3d5fc4;
+  --text: #f2f2f5;
+  --text-dim: #9a9ba5;
+  --error: #ff5b5b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.calculator {
+  width: min(420px, 92vw);
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.history {
+  max-height: 110px;
+  overflow-y: auto;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  padding: 4px 6px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.history-item:hover {
+  color: var(--text);
+}
+
+.display {
+  position: relative;
+  margin: 8px 0;
+}
+
+#expression {
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 14px 40px 14px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #14151b;
+  color: var(--text);
+  text-align: right;
+}
+
+#expression:focus {
+  outline: 2px solid var(--accent);
+}
+
+.memory-indicator {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  visibility: hidden;
+}
+
+.memory-indicator.active {
+  visibility: visible;
+}
+
+.error {
+  min-height: 1.2em;
+  color: var(--error);
+  font-size: 0.85rem;
+  padding: 0 4px 6px;
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+button {
+  padding: 14px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #383a47;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.05s ease;
+}
+
+button:hover {
+  background: #454759;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button.equals {
+  background: var(--accent);
+  grid-column: span 1;
+}
+
+button.equals:hover {
+  background: var(--accent-dim);
+}
